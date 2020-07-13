@@ -37,7 +37,7 @@ I want to see all peeps in reverse chronological order
 ```
 As a user
 So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+I want to see how long ago it was made
 ```
 ```
 As a user

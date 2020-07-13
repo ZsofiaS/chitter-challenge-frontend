@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PeepList from './PeepList'
+import PeepList from './PeepList';
+import PeepForm from './PeepForm';
 import './App.css';
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
           <h1>Latest peeps</h1>
         )}
         <PeepList peeps={this.state.peeps}/>
+        <PeepForm />
      </div>
     );
   }

@@ -8,6 +8,7 @@ class Peep extends Component {
   }
   render() {
     const { id, body, created_at, likes, updated, user } = this.props.post;
+    console.log(this.props.post)
     return (
       <div>
         <p>{body}</p>
