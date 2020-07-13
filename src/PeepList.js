@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Peep from './Peep';
 
 class PeepList extends Component {
   constructor(props) {
@@ -11,7 +12,9 @@ class PeepList extends Component {
       <ul>
       {this.props.peeps.map((post) => {
         return (
-          <li key={post.id} id={post.id}>{post.body}</li>
+          <li key={post.id} id={post.id}>
+            <Peep post={post}/>
+          </li>
         )
       })}
       </ul>
