@@ -6,13 +6,19 @@ class PeepList extends Component {
     super(props);
     this.state = {}
   }
+
+  clickHandler = (id) => {
+    console.log(id);
+    this.props.fetchIndividualPeep(id);
+  }
+
   render() {
     const {peeps} = this.props;
     return (
       <ul>
       {this.props.peeps.map((post) => {
         return (
-          <li key={post.id} id={post.id}>
+          <li key={post.id} id={post.id} onClick={() => this.clickHandler(post.id)}>
             <Peep post={post}/>
           </li>
         )

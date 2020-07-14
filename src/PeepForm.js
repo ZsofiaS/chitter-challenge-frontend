@@ -43,7 +43,7 @@ class PeepForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <form onSubmit={console.log("submitted")}>
         <input type="text" placeholder="Your name here..." onChange={this.nameChangeHandler} />
         <input type="text" placeholder="Your peep here..." onChange={this.peepChangeHandler} />
         <input type="submit" />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PeepList from './PeepList';
+import Peep from './Peep';
 import PeepForm from './PeepForm';
 import './App.css';
 
@@ -8,7 +9,9 @@ class App extends Component {
     super();
     this.state = {
       isLoading: true,
-      peeps: []
+      isListView: true,
+      peeps: [],
+      peep: {}
     };
   }
 
@@ -25,6 +28,25 @@ class App extends Component {
     })
   }
 
+  fetchIndividualPeep = (id) => {
+    let APIurl = `https://chitter-backend-api-v2.herokuapp.com/peeps/${id}`;
+
+    fetch(APIurl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          peep: data,
+          isListView: false
+        });
+      })
+  }
+
+  backHandler = () => {
+    this.setState({
+      isListView: true
+    })
+  }
+
   render() {
     const { isLoading } = this.state;
     return (
@@ -34,7 +56,15 @@ class App extends Component {
         ) : (
           <h1>Latest peeps</h1>
         )}
-        <PeepList peeps={this.state.peeps}/>
+
+        {this.state.isListView ? (
+          <PeepList peeps={this.state.peeps} fetchIndividualPeep={this.fetchIndividualPeep}/>
+        ) : (
+          <>
+          <Peep post={this.state.peep} />
+          <button onClick={this.backHandler}>Back</button>
+          </>
+        )}
         <PeepForm />
      </div>
     );
