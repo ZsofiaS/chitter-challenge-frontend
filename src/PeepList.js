@@ -8,12 +8,10 @@ class PeepList extends Component {
   }
 
   clickHandler = (id) => {
-    console.log(id);
     this.props.fetchIndividualPeep(id);
   }
 
   likeHandler = (id) => {
-    console.log(id)
     this.props.likeHandler(id);
   }
 
@@ -28,7 +26,6 @@ class PeepList extends Component {
             key={post.id}
             id={post.id}
             onClick={() => this.clickHandler(post.id)}
-
             >
             <Peep
               post={post}

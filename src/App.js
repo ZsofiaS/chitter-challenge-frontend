@@ -15,6 +15,8 @@ class App extends Component {
       isLoggedIn: false,
       peeps: [],
       peep: {},
+      session: null,
+      userId: null,
     };
   }
 
@@ -50,7 +52,6 @@ class App extends Component {
 
   signupHandler = (e, userName, password) => {
     e.preventDefault();
-
     let APIurl = 'https://chitter-backend-api-v2.herokuapp.com/users';
 
     fetch(APIurl,
@@ -71,35 +72,35 @@ class App extends Component {
       .then((data) => console.log(data))
     }
 
-    loginHandler = (e, userName, password) => {
-      e.preventDefault();
+  loginHandler = (e, userName, password) => {
+    e.preventDefault();
 
-      let APIurl = 'https://chitter-backend-api-v2.herokuapp.com/sessions';
+    let APIurl = 'https://chitter-backend-api-v2.herokuapp.com/sessions';
 
-      fetch(APIurl,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body:
-            JSON.stringify({
-              session: {
-                handle: `${userName}`,
-                password: `${password}`
-              }
-            })
-        })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          this.setState({
-            session: data.session_key,
-            userId: data.user_id,
-            isLoggedIn: true
-          });
-        })
-      }
+    fetch(APIurl,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body:
+          JSON.stringify({
+            session: {
+              handle: `${userName}`,
+              password: `${password}`
+            }
+          })
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          session: data.session_key,
+          userId: data.user_id,
+          isLoggedIn: true
+        });
+      })
+  }
 
   backHandler = () => {
     this.setState({
@@ -132,24 +133,33 @@ class App extends Component {
 
     }
 
-    likeHandler = (id, userId) => {
+  likeHandler = (id, userId) => {
+    if ( userId != null ) {
+      let APIurlPut = `https://chitter-backend-api-v2.herokuapp.com/peeps/${id}/likes/${userId}`;
+      let optionsPut = {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Token token=${this.state.session}`,
+        }
+      }
+      let optionsDel = {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Token token=${this.state.session}`,
+        }
+      }
 
-      let APIurl = `https://chitter-backend-api-v2.herokuapp.com/peeps/${id}/likes/${userId}`;
-      console.log("liked again");
-      console.log(`${id}`)
-      console.log(`${userId}`)
-
-      fetch(APIurl,
-        {
-          method: 'PUT',
-          headers: {
-            'Authorization': `Token token=${this.state.session}`,
+      fetch(APIurlPut, optionsPut)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+          if (data.user == "has already been taken") {
+            fetch(APIurlPut, optionsDel)
           }
         })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
         .then(() => this.fetchListOfPeeps())
     }
+  }
 
   render() {
     const { isLoading, isListView, isShowingLoginForm, isLoggedIn, peeps, peep } = this.state;

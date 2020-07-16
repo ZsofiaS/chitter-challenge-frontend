@@ -13,9 +13,7 @@ class Peep extends Component {
 
   likeHandler = (event, id) => {
     event.stopPropagation();
-    console.log(id)
     this.props.likeHandler(id);
-    console.log(id)
   }
 
   render() {
