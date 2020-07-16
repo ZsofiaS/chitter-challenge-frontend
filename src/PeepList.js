@@ -12,14 +12,28 @@ class PeepList extends Component {
     this.props.fetchIndividualPeep(id);
   }
 
+  likeHandler = (id) => {
+    console.log(id)
+    this.props.likeHandler(id);
+  }
+
   render() {
     const {peeps} = this.props;
     return (
       <ul className="peepList">
       {peeps.map((post) => {
         return (
-          <li className="peep" key={post.id} id={post.id} onClick={() => this.clickHandler(post.id)}>
-            <Peep post={post}/>
+          <li
+            className="peep"
+            key={post.id}
+            id={post.id}
+            onClick={() => this.clickHandler(post.id)}
+
+            >
+            <Peep
+              post={post}
+              likeHandler={(id) => this.likeHandler(id)}
+              />
           </li>
         )
       })}

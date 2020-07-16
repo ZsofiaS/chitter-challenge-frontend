@@ -11,15 +11,23 @@ class Peep extends Component {
     }
   }
 
+  likeHandler = (event, id) => {
+    event.stopPropagation();
+    console.log(id)
+    this.props.likeHandler(id);
+    console.log(id)
+  }
+
   render() {
     const { id, body, created_at, likes, updated, user } = this.props.post;
     return (
       <div>
         <p className="peepContent">{body}</p>
         <p>Posted by <span className="userName">{user.handle} </span><Moment fromNow tz="Europe/London">{created_at}</Moment></p>
-        { likes.length > 0 ? (
-          <p className="likeContainer"><FavoriteIcon /><span className="likeNumber">{likes.length}</span></p>
-        ) : ('')}
+          <p className="likeContainer">
+            <FavoriteIcon onClick={(event) => this.likeHandler(event, id)}/>
+            <span className="likeNumber">{likes.length > 0 && likes.length}</span>
+          </p>
       </div>
     )
   }

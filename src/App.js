@@ -14,7 +14,7 @@ class App extends Component {
       isShowingLoginForm: true,
       isLoggedIn: false,
       peeps: [],
-      peep: {}
+      peep: {},
     };
   }
 
@@ -129,6 +129,26 @@ class App extends Component {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .then(() => this.fetchListOfPeeps())
+
+    }
+
+    likeHandler = (id, userId) => {
+
+      let APIurl = `https://chitter-backend-api-v2.herokuapp.com/peeps/${id}/likes/${userId}`;
+      console.log("liked again");
+      console.log(`${id}`)
+      console.log(`${userId}`)
+
+      fetch(APIurl,
+        {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Token token=${this.state.session}`,
+          }
+        })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .then(() => this.fetchListOfPeeps())
     }
 
   render() {
@@ -144,7 +164,10 @@ class App extends Component {
 
         {isListView ? (
           <>
-            <PeepList peeps={peeps} fetchIndividualPeep={this.fetchIndividualPeep}/>
+            <PeepList peeps={peeps}
+              fetchIndividualPeep={this.fetchIndividualPeep}
+              likeHandler={(id) => this.likeHandler(id, this.state.userId)}
+            />
             { !isLoggedIn ? (
               <LoginForm loginHandler={this.loginHandler} signupHandler={this.signupHandler}/>
             ) : (

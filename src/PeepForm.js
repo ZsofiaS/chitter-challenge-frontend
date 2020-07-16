@@ -14,6 +14,10 @@ class PeepForm extends Component {
     })
   }
 
+  peepSubmitHandler = (e) => {
+    this.props.peepSubmitHandler(e, this.state.peep);
+  }
+
   render() {
     return (
       <>
