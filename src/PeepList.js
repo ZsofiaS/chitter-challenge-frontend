@@ -15,10 +15,10 @@ class PeepList extends Component {
   render() {
     const {peeps} = this.props;
     return (
-      <ul>
-      {this.props.peeps.map((post) => {
+      <ul className="peepList">
+      {peeps.map((post) => {
         return (
-          <li key={post.id} id={post.id} onClick={() => this.clickHandler(post.id)}>
+          <li className="peep" key={post.id} id={post.id} onClick={() => this.clickHandler(post.id)}>
             <Peep post={post}/>
           </li>
         )
