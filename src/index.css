@@ -1,13 +1,94 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: #F8F8F8;
+  font-family: 'Baloo Da 2', cursive;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  /* margin: 0 auto !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  text-align: center !important; */
+}
+form {
+  width: 60%;
+  margin: 0 auto;
+  display: block;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+input {
+  padding: .6rem;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  font-family: inherit;
+  display: block;
+  width: 90%;
+  border-radius: 3px;
+  border: 1px solid gainsboro;
+  font-family: inherit;
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+input::-webkit-input-placeholder {
+  padding: 1rem;
+  padding-left: 0;
+  margin: auto;
+  text-align: left;
+}
+label {
+  display: block;
+}
+.peep {
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  padding: 1rem;
+  margin: 2rem auto;
+}
+.peepList {
+  list-style: none;
+  padding-left: 0;
+}
+.peepContent {
+  font-size: 1.5rem;
+}
+.likeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.likeContainer svg {
+  color: #ff5050;
+}
+.likeNumber {
+  padding-left: 0.2rem;
+}
+.userName {
+  font-weight: bolder;
+}
+.button {
+  color: white;
+  background-color: #ff5050;
+  border: none;
+  border-radius: 3px;
+  padding: .3rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.button:hover {
+  background-color: #ff9999;
+  cursor: pointer;
+}
+.shortButton {
+  width: 30%;
 }
