@@ -22,7 +22,9 @@ class PeepForm extends Component {
     return (
       <>
         <input type="text" placeholder="Your peep here..." onChange={this.peepChangeHandler} />
-        <button className="button shortButton"
+        <button
+          id='peepSubmit'
+          className='button shortButton'
           onClick={(event) => this.props.peepSubmitHandler(event, this.state.peep)}>Submit</button>
       </>
     )

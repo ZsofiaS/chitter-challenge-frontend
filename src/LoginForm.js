@@ -22,12 +22,14 @@ class LoginForm extends Component {
   render() {
     return (
       <>
-        <input type="text" placeholder="Your name..." onChange={this.nameChangeHandler} />
-        <input type="password" placeholder="Your password..." onChange={this.passwordChangeHandler} />
+        <input id='nameInput' type="text" placeholder="Your name..." onChange={this.nameChangeHandler} />
+        <input id='passwordInput' type="password" placeholder="Your password..." onChange={this.passwordChangeHandler} />
         <button
+          id='loginSubmit'
           className="button shortButton"
           onClick={(event) => this.props.loginHandler(event, this.state.userName, this.state.password)}>Login</button>
         <button
+          id='signupSubmit'
           className="button shortButton"
           onClick={(event) => this.props.signupHandler(event, this.state.userName, this.state.password)}>Signup</button>
       </>

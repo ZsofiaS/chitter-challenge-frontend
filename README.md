@@ -24,6 +24,11 @@ npm start
 ```
 npm test
 ```
+This will run the `jest` tests. To run the integration tests, type in the terminal window:
+```
+npx cypress open
+```
+
 
 ### My approach
 I've decided to make this project a learning opportunity to explore testing libraries for React, as well as practicing React.  

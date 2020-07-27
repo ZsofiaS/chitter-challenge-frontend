@@ -17,6 +17,7 @@ class App extends Component {
       peep: {},
       session: null,
       userId: null,
+      isSignedUp: false
     };
   }
 
@@ -69,7 +70,12 @@ class App extends Component {
           })
       })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          isSignedUp: true
+        })
+      })
     }
 
   loginHandler = (e, userName, password) => {
@@ -162,7 +168,7 @@ class App extends Component {
   }
 
   render() {
-    const { isLoading, isListView, isShowingLoginForm, isLoggedIn, peeps, peep } = this.state;
+    const { isLoading, isListView, isShowingLoginForm, isLoggedIn, peeps, peep, isSignedUp } = this.state;
     console.log(isShowingLoginForm)
     return (
       <div className="App">
@@ -174,12 +180,15 @@ class App extends Component {
 
         {isListView ? (
           <>
+            { isSignedUp ? (
+              <p>Signup successful.</p>
+            ) : ''}
             <PeepList peeps={peeps}
               fetchIndividualPeep={this.fetchIndividualPeep}
               likeHandler={(id) => this.likeHandler(id, this.state.userId)}
             />
             { !isLoggedIn ? (
-              <LoginForm loginHandler={this.loginHandler} signupHandler={this.signupHandler}/>
+              <LoginForm id='loginForm' loginHandler={this.loginHandler} signupHandler={this.signupHandler}/>
             ) : (
               <PeepForm peepSubmitHandler={this.peepSubmitHandler} />
             )}
@@ -187,7 +196,7 @@ class App extends Component {
         ) : (
           <>
           <Peep className="peep" post={peep} />
-          <button className="button shortButton" onClick={this.backHandler}>Back</button>
+          <button id='backButton' className="button shortButton" onClick={this.backHandler}>Back</button>
           </>
         )}
 
