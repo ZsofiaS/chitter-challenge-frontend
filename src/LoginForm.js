@@ -18,20 +18,44 @@ class LoginForm extends Component {
       password: e.target.value
     })
   }
+  loginHandler = (event) => {
+    this.props.loginHandler(event, this.state.userName, this.state.password);
+    this.setState({
+      userName: '',
+      password: ''
+    })
+  }
+  signupHandler = (event) => {
+    this.props.signupHandler(event, this.state.userName, this.state.password);
+    this.setState({
+      userName: '',
+      password: ''
+    })
+  }
 
   render() {
     return (
       <>
-        <input id='nameInput' type="text" placeholder="Your name..." onChange={this.nameChangeHandler} />
-        <input id='passwordInput' type="password" placeholder="Your password..." onChange={this.passwordChangeHandler} />
+        <input
+          id='nameInput'
+          type="text"
+          value={this.state.userName}
+          placeholder="Your name..."
+          onChange={this.nameChangeHandler} />
+        <input
+          id='passwordInput'
+          type="password"
+          value={this.state.password}
+          placeholder="Your password..."
+          onChange={this.passwordChangeHandler} />
         <button
           id='loginSubmit'
           className="button shortButton"
-          onClick={(event) => this.props.loginHandler(event, this.state.userName, this.state.password)}>Login</button>
+          onClick={(event) => this.loginHandler(event)}>Login</button>
         <button
           id='signupSubmit'
           className="button shortButton"
-          onClick={(event) => this.props.signupHandler(event, this.state.userName, this.state.password)}>Signup</button>
+          onClick={(event) => this.signupHandler(event)}>Signup</button>
       </>
     )
   }

@@ -21,7 +21,11 @@ class PeepForm extends Component {
   render() {
     return (
       <>
-        <input type="text" placeholder="Your peep here..." onChange={this.peepChangeHandler} />
+        <input
+          id='peepInput'
+          type="text"
+          placeholder="Your peep here..."
+          onChange={this.peepChangeHandler} />
         <button
           id='peepSubmit'
           className='button shortButton'

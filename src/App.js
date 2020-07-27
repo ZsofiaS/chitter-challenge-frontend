@@ -169,7 +169,6 @@ class App extends Component {
 
   render() {
     const { isLoading, isListView, isShowingLoginForm, isLoggedIn, peeps, peep, isSignedUp } = this.state;
-    console.log(isShowingLoginForm)
     return (
       <div className="App">
         {isLoading ? (
@@ -190,7 +189,7 @@ class App extends Component {
             { !isLoggedIn ? (
               <LoginForm id='loginForm' loginHandler={this.loginHandler} signupHandler={this.signupHandler}/>
             ) : (
-              <PeepForm peepSubmitHandler={this.peepSubmitHandler} />
+              <PeepForm id='peepForm' peepSubmitHandler={this.peepSubmitHandler} />
             )}
           </>
         ) : (

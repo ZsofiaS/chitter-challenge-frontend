@@ -92,3 +92,6 @@ label {
 .shortButton {
   width: 30%;
 }
+.likeSubmit:hover {
+  cursor: pointer;
+}

@@ -23,7 +23,7 @@ class Peep extends Component {
         <p className="peepContent">{body}</p>
         <p>Posted by <span className="userName">{user.handle} </span><Moment fromNow tz="Europe/London">{created_at}</Moment></p>
           <p className="likeContainer">
-            <FavoriteIcon onClick={(event) => this.likeHandler(event, id)}/>
+            <FavoriteIcon className='likeSubmit' onClick={(event) => this.likeHandler(event, id)}/>
             <span className="likeNumber">{likes.length > 0 && likes.length}</span>
           </p>
       </div>
