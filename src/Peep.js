@@ -18,15 +18,16 @@ class Peep extends Component {
 
   render() {
     const { id, body, created_at, likes, updated, user } = this.props.post;
+    console.log(this.props.post);
     return (
-      <div>
+      <>
         <p className="peepContent">{body}</p>
         <p>Posted by <span className="userName">{user.handle} </span><Moment fromNow tz="Europe/London">{created_at}</Moment></p>
           <p className="likeContainer">
             <FavoriteIcon className='likeSubmit' onClick={(event) => this.likeHandler(event, id)}/>
             <span className="likeNumber">{likes.length > 0 && likes.length}</span>
           </p>
-      </div>
+      </>
     )
   }
 }

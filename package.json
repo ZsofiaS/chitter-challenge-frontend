@@ -13,13 +13,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-moment": "^0.9.7",
-    "react-scripts": "3.4.1",
-    "react-test-renderer": "^16.13.1"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "eject": "react-scripts eject",
@@ -42,6 +41,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
-    "cypress": "^4.10.0"
+    "cypress": "^4.10.0",
+    "react-test-renderer": "^16.13.1"
   }
 }
