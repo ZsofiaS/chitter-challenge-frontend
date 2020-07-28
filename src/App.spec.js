@@ -14,6 +14,10 @@ describe('App', () => {
     const wrapper = mount(<App />);
     expect(wrapper.containsMatchingElement(<LoginForm />)).toEqual(true);
   })
+  it('renders the inner PeepList', () => {
+    const wrapper = mount(<App />);
+    expect(wrapper.containsMatchingElement(<PeepList />)).toEqual(true);
+  })
 })
 
 describe('First test', () => {
