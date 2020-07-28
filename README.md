@@ -24,7 +24,8 @@ npm start
 ```
 npm test
 ```
-This will run the `jest` tests. To run the integration tests, type in the terminal window:
+This will run the `jest` snapshot tests.  
+To run the integration tests, type in the terminal window:
 ```
 npx cypress open
 ```
