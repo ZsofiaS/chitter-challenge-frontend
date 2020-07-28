@@ -5,4 +5,8 @@
 import '@testing-library/react/cleanup-after-each';
 import '@testing-library/jest-dom/extend-expect';
 import fetch from 'node-fetch';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 global.fetch = fetch;

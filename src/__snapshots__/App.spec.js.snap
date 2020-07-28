@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Loading...
+  </h1>
+  
+  <ul
+    className="peepList"
+  />
+  <input
+    id="nameInput"
+    onChange={[Function]}
+    placeholder="Your name..."
+    type="text"
+    value=""
+  />
+  <input
+    id="passwordInput"
+    onChange={[Function]}
+    placeholder="Your password..."
+    type="password"
+    value=""
+  />
+  <button
+    className="button shortButton"
+    id="loginSubmit"
+    onClick={[Function]}
+  >
+    Login
+  </button>
+  <button
+    className="button shortButton"
+    id="signupSubmit"
+    onClick={[Function]}
+  >
+    Signup
+  </button>
+</div>
+`;
+
+exports[`LoginForm snapshot renders 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Loading...
+  </h1>
+  
+  <ul
+    className="peepList"
+  />
+  <input
+    id="nameInput"
+    onChange={[Function]}
+    placeholder="Your name..."
+    type="text"
+    value=""
+  />
+  <input
+    id="passwordInput"
+    onChange={[Function]}
+    placeholder="Your password..."
+    type="password"
+    value=""
+  />
+  <button
+    className="button shortButton"
+    id="loginSubmit"
+    onClick={[Function]}
+  >
+    Login
+  </button>
+  <button
+    className="button shortButton"
+    id="signupSubmit"
+    onClick={[Function]}
+  >
+    Signup
+  </button>
+</div>
+`;
