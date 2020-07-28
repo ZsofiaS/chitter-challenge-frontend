@@ -6,7 +6,7 @@ import Peep from './App';
 describe('Peep', ()  => {
   test('snapshot renders', () => {
     const tree = renderer
-      .create(<Peep />)
+      .create(<Peep post="peep"/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   })
